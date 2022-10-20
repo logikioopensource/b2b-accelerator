@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>54.0</apiVersion>
+    <masterLabel>Logik.io Configurator for Commerce</masterLabel>
+    <description>Includes a button and modal to launch the Logik.io configuration (specifically for Experience Builder)</description>
+    <isExposed>true</isExposed>
+    <targets>
+        <target>lightningCommunity__Page</target>
+        <target>lightningCommunity__Page_Layout</target>
+        <target>lightningCommunity__Default</target>
+        <target>lightning__RecordPage</target>
+    </targets>
+    <targetConfigs>
+        <targetConfig targets="lightningCommunity__Default">
+            <property name="recordId" default="{!recordId}" type="String" label="Record Id" description="Warning: Do not edit. Automatically bind the page's record id to the component variable."/>
+            <property name="effectiveAccountId" default="{!CurrentUser.effectiveAccountId}" type="String" label="EffectiveAccount Id" description="The ID of the account for the current user. The value of this should not be changed."/>
+        </targetConfig>
+    </targetConfigs>
+    <capabilities>
+        <capability>lightningCommunity__RelaxedCSP</capability>
+    </capabilities>
+</LightningComponentBundle>

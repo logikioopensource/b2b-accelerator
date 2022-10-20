@@ -1,0 +1,6 @@
+.configure-button {
+    border-radius: 0px;
+    height: 2.5rem;
+    margin-left: var(--lwc-spacingSmall, 0.75rem);
+    text-transform: uppercase;
+}

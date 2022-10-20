@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CommerceLayoutName__c</fullName>
+    <label>Commerce Layout Name</label>
+    <type>Text</type>
+    <length>255</length>
+    <businessStatus>Active</businessStatus>
+    <description>(Optional) If using an external configurator the name of the initial layout that loads from a Commerce store.</description>
+    <externalId>false</externalId>
+    <trackHistory>false</trackHistory>
+</CustomField>

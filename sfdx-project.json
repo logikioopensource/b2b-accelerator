@@ -1,0 +1,20 @@
+{
+    "sfdcLoginUrl": "https://login.salesforce.com",
+    "sourceApiVersion": "55.0",
+    "packageDirectories": [
+        {
+            "path": "src",
+            "versionNumber": "0.0.0.NEXT",
+            "package": "Logik.io Commerce Accelerator",
+            "releaseNotesUrl": "https://logiksupport.force.com",
+            "dependencies": [
+                {
+                    "package": "Logik.io Managed Package@1.4.0.3"
+                }
+            ]
+        }
+    ],
+    "packageAliases": {
+        "Logik.io Managed Package@1.4.0.3": "04t5e000000n1BgAAI"
+    }
+}
