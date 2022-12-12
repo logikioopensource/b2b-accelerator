@@ -77,7 +77,7 @@
         '{!$CurrentPage.parameters.productId}', // method params
         function(result, event) {
           if (event.status) {  // aka if no error occurred
-            if (result?.length > 0)) {
+            if (result?.length > 0) {
               initialConfigData.layoutVarName = result;
             }
 
