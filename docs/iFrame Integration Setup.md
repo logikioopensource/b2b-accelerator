@@ -33,6 +33,10 @@ A similar set of steps need to be followed for a Product2 field.
 3. Go to Administration > Pages > Go to Force.com.
 4. Under “Site Visualforce Pages” click edit.
 5. Add commerceConfigurationWindow from Available to Enabled and save.
+6. From Setup home, go to Custom Code > Visualforce Pages.
+7. Look for commerceConfigurationWindow and click Security.
+8. Select any profiles that will be configuring products and move them from Available to Enabled.
+9. Save.
 
 ### Experience Builder
 1. From the Commerce home page, open Experience Builder.
