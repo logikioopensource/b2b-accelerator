@@ -18,8 +18,6 @@ private class HeadlessCartControllerTest {
         new Product2(Name = PRODUCT_NAMES[4]),
         new Product2(Name = PRODUCT_NAMES[5])
     };
-    final static Id CUSTOMER_PROFILE_ID = [SELECT Id FROM PROFILE WHERE Name = 'Customer Community User' LIMIT 1].Id;
-    final static Id PARTNER_PROFILE_ID = [SELECT Id FROM PROFILE WHERE Name = 'Partner Community User' LIMIT 1].Id;
     final static Id WEBSTORE_ID = [SELECT Id FROM WebStore WHERE Type = 'B2B' LIMIT 1].Id;
     final static Id STANDARD_PRICE_BOOK_ID = Test.getStandardPricebookId();
     final static Id STORE_PRICE_BOOK_ID = [SELECT Pricebook2Id FROM WebStorePricebook WHERE WebStoreId = :WEBSTORE_ID LIMIT 1].Pricebook2Id;
@@ -97,7 +95,7 @@ private class HeadlessCartControllerTest {
         User[] queryUsersList;
         for (NetworkMember each : USERS_LIST) {
             if (queryUsersList == null || queryUsersList.isEmpty()) {
-                queryUsersList = [SELECT AccountId FROM User WHERE Id = :each.MemberId AND (ProfileId = :CUSTOMER_PROFILE_ID OR ProfileId = :PARTNER_PROFILE_ID)];   
+                queryUsersList = [SELECT AccountId FROM User WHERE Id = :each.MemberId AND User.Profile.Name LIKE '%community%'];   
             }
         }
         accountId = queryUsersList[0].AccountId;

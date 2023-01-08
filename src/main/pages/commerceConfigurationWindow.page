@@ -107,8 +107,10 @@
                 window.location = '{!$Site.CurrentSiteUrl}s/cart/' + result;  //CurrentSiteUrl comes with a trailing /, change this to another Site parameter if that's not consistent across orgs
               }
               else {
-                console.log('Error in VF remoting:');
-                console.log(event.message);
+                document.getElementsByClassName('slds-spinner_container')[0].style.display = 'none';  
+                document.getElementById('apex-error-container').style.display = 'inline';
+                document.getElementById('{!$Component.apexerror}').summary = event.message;
+                document.getElementById("{!$Component.apexerror}").getElementsByClassName("messageText")[0].innerText = event.message;
               }
             }
           );
@@ -121,6 +123,9 @@
     </script>
   </head>
   <body>
+    <div id="apex-error-container" style="display:none; text-align:center;">
+      <apex:pageMessage id="apexerror" severity="error" strength="2" rendered="true" title="Unexpected Error" summary="An error has occurred during Add to Cart."></apex:pageMessage>
+    </div>
     <div class="slds-scope slds-spinner_container" style="display:none">
       <div role="status" class="slds-spinner slds-spinner_large slds-spinner_brand">
         <span class="slds-assistive-text">Loading</span>
