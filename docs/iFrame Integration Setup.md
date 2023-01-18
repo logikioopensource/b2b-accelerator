@@ -27,6 +27,12 @@ A similar set of steps need to be followed for a Product2 field.
 5. For the Runtime Client Token field, paste the copied token for the runtime client. Make sure the URL field(s) are set to the same URL as one of the runtime client’s Origins in Logik.io admin.
 6. Save.
 
+### Apex Class Access
+1. From Setup home, go to Custom Code > Apex Classes.
+2. Look for CommerceConfigurationPunchinController and click Security.
+3. Select any profiles that will be configuring products and move them from Available to Enabled.
+4. Save.
+
 ### Visualforce Page Access
 1. From Setup home, go to Feature Settings > Digital Experiences > All Sites.
 2. For your store, click “Workspaces”.
