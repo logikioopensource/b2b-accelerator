@@ -29,6 +29,12 @@ A similar set of steps are required on CartItem fields as well.
    - ProductId
    - Price
    - Type
+
+### Apex Class Access
+1. From Setup home, go to Custom Code > Apex Classes.
+2. Look for HeadlessCartController and click Security.
+3. Select any profiles that will be configuring products and using the REST API and move them from Available to Enabled.
+4. Save.
    
 ## Schema
 ### Endpoint
