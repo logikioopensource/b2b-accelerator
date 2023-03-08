@@ -21,11 +21,10 @@ A similar set of steps need to be followed for a Product2 field.
    
 ### Runtime Token
 1. In Logik, create a Runtime Client, with an Origin matching the Logik base URL. Click Copy to get the client token.
-2. In Salesforce, from Setup home, go to Custom Code > Custom Settings.
-3. For Logik Tenant, click Manage.
-4. If settings already exist, click “Edit”. Otherwise, click “New” above the “Default Organization Level Value” header.
-5. For the Runtime Client Token field, paste the copied token for the runtime client. Make sure the URL field(s) are set to the same URL as one of the runtime client’s Origins in Logik.io admin.
-6. Save.
+2. In Salesforce, from Setup home, go to Custom Code > Visualforce Pages.
+3. Find the "commerceConfigurationWindow" page and click Edit.
+4. Look for the line: `"runtimeToken":"",  // Set this to the token for the Runtime Client created in Logik`
+5. Paste the copied token into the empty string and save.
 
 ### Apex Class Access
 1. From Setup home, go to Custom Code > Apex Classes.

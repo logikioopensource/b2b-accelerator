@@ -55,7 +55,7 @@
       );
 
       var initialConfigData = {
-        "runtimeToken":"{!$Setup.LGK__ConfigurationTenant__c.LGK__RuntimeClientToken__c}",
+        "runtimeToken":"",  // Set this to the token for the Runtime Client created in Logik
         "product": {
           "configuredProductId": "{!$CurrentPage.parameters.productId}",
           "configurationAttributes": {
