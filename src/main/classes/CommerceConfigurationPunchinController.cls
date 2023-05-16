@@ -117,6 +117,7 @@ global with sharing class CommerceConfigurationPunchinController {
 
     @AuraEnabled(cacheable=true)
     public static String getVisualforceUrl(Id communityId, String accountId, String productId) {
-        return '/apex/commerceConfigurationWindow?communityId=' + communityId + '&accountId=' + accountId + '&productId=' + productId;
+        String pathPrefix = [SELECT UrlPathPrefix FROM Network WHERE Id = :communityId WITH SECURITY_ENFORCED LIMIT 1].UrlPathPrefix;
+        return '/' + pathPrefix + '/apex/commerceConfigurationWindow?communityId=' + communityId + '&accountId=' + accountId + '&productId=' + productId;
     }
 }
