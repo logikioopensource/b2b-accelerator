@@ -62,20 +62,27 @@ global with sharing class CommerceConfigurationPunchinController {
                     Decimal tempQuantity = Double.valueOf(tempRecord.get('quantity'));
                     Decimal tempPrice = Double.valueOf(tempRecord.get('price'));
 
-                    cartItemsList.add(new CartItem(
-                        Name = String.valueOf(tempRecord.get('name')),
-                        CartId = currentCart.cartId,
-                        Type = 'Product',
-                        CartDeliveryGroupId = deliveryGroupId,
-                        Product2Id = String.valueOf(tempRecord.get('partnerId')),
-                        Quantity = tempQuantity,
-                        // There are multiple price fields on the CartItem, these seem like the most appropriate to update based on API name/description
-                        SalesPrice = tempPrice,
-                        UnitAdjustedPrice = tempPrice,
-                        TotalLineAmount = tempQuantity * tempPrice,
-                        TotalPrice = tempQuantity * tempPrice,
-                        TotalPriceAfterAllAdjustments = tempQuantity * tempPrice
-                    ));
+                    try {
+                        Id productId = Id.valueOf(String.valueOf(tempRecord.get('partnerId')));
+                        if (productId.getSObjectType() == Product2.SObjectType) {
+                            cartItemsList.add(new CartItem(
+                                Name = String.valueOf(tempRecord.get('name')),
+                                CartId = currentCart.cartId,
+                                Type = 'Product',
+                                CartDeliveryGroupId = deliveryGroupId,
+                                Product2Id = String.valueOf(tempRecord.get('partnerId')),
+                                Quantity = tempQuantity,
+                                // There are multiple price fields on the CartItem, these seem like the most appropriate to update based on API name/description
+                                SalesPrice = tempPrice,
+                                UnitAdjustedPrice = tempPrice,
+                                TotalLineAmount = tempQuantity * tempPrice,
+                                TotalPrice = tempQuantity * tempPrice,
+                                TotalPriceAfterAllAdjustments = tempQuantity * tempPrice
+                            ));
+                        }
+                    } catch (StringException se) {
+                        System.debug(se.getMessage());
+                    }
                 }
             }
 

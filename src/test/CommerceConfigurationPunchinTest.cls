@@ -109,7 +109,8 @@ private class CommerceConfigurationPunchinTest {
         Test.startTest();
         setupData();
         String generatedUrl = CommerceConfigurationPunchinController.getVisualforceUrl(COMMUNITY_ID, accountId, productsList[0].Id);
-        String expectedUrl = '/apex/commerceConfigurationWindow?communityId=' + COMMUNITY_ID + '&accountId=' + accountId + '&productId=' + productsList[0].Id;
+        String pathPrefix = [SELECT UrlPathPrefix FROM Network WHERE Id = :COMMUNITY_ID WITH SECURITY_ENFORCED LIMIT 1].UrlPathPrefix;
+        String expectedUrl = '/' + pathPrefix + '/apex/commerceConfigurationWindow?communityId=' + COMMUNITY_ID + '&accountId=' + accountId + '&productId=' + productsList[0].Id;
         System.assertEquals(expectedUrl, generatedUrl);
         Test.stopTest();
     }
