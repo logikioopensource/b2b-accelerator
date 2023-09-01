@@ -1,4 +1,4 @@
-# Logik.io Integration with Salesforce B2B Commerce
+# Logik.io Integration with Salesforce Commerce Cloud
 
 ## Preconditions
 This guide assumes the following in Salesforce:

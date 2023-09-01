@@ -22,7 +22,7 @@ A similar set of steps need to be followed for a Product2 field.
 ### Runtime Token
 1. In Logik, create a Runtime Client, with an Origin matching the Logik base URL. Click Copy to get the client token.
 2. In Salesforce, from Setup home, go to Custom Code > Visualforce Pages.
-3. Find the "commerceConfigurationWindow" page and click Edit.
+3. If using a site on an Aura template, find the "commerceConfigurationWindow" page and click Edit. If using a site on a LWR template, Edit the "commerceConfigurationWindowLwr" page.
 4. Look for the line: `"runtimeToken":"",  // Set this to the token for the Runtime Client created in Logik`
 5. Paste the copied token into the empty string and save.
 
@@ -37,9 +37,9 @@ A similar set of steps need to be followed for a Product2 field.
 2. For your store, click “Workspaces”.
 3. Go to Administration > Pages > Go to Force.com.
 4. Under “Site Visualforce Pages” click edit.
-5. Add commerceConfigurationWindow from Available to Enabled and save.
+5. If using a site on an Aura template, add "commerceConfigurationWindow" from Available to Enabled and save. If using a site on a LWR template, add "commerceConfigurationWindowLwr" instead.
 6. From Setup home, go to Custom Code > Visualforce Pages.
-7. Look for commerceConfigurationWindow and click Security.
+7. Look for the page added in step 5 and click Security.
 8. Select any profiles that will be configuring products and move them from Available to Enabled.
 9. Save.
 
@@ -48,7 +48,7 @@ A similar set of steps need to be followed for a Product2 field.
 2. Click on “Home” in the top left to open up the list of pages. Search or navigate to Product and click “Product Detail”. Either add the custom Logik button to the existing Product Detail page, or use the packaged page as a variation.
 #### To add the button to an existing page:
 1. Click the lightning bolt on the left and go to Custom Components (the last section in the list).
-2. Click and drag the “Logik.io Configurator…” from the list and move it to where you want it on the layout.
+2. Depending on the template that the site is using, click and drag the “Logik.io for Commerce (Aura)” or “Logik.io for Commerce (LWR)” from the list and move it to where you want it on the layout.
 
 #### To use the packaged page as a variation:
 1. Re-open the page navigation menu on the top left.
