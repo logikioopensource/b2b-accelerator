@@ -105,12 +105,22 @@ private class CommerceConfigurationPunchinTest {
     }
 
     @isTest
-    static void TestVisualforceUrl() {
+    static void TestVisualforceUrlAura() {
         Test.startTest();
         setupData();
-        String generatedUrl = CommerceConfigurationPunchinController.getVisualforceUrl(COMMUNITY_ID, accountId, productsList[0].Id);
+        String generatedUrl = CommerceConfigurationPunchinController.getVisualforceUrlForAura(COMMUNITY_ID, accountId, productsList[0].Id);
         String pathPrefix = [SELECT UrlPathPrefix FROM Network WHERE Id = :COMMUNITY_ID WITH SECURITY_ENFORCED LIMIT 1].UrlPathPrefix;
         String expectedUrl = '/' + pathPrefix + '/apex/commerceConfigurationWindow?communityId=' + COMMUNITY_ID + '&accountId=' + accountId + '&productId=' + productsList[0].Id;
+        System.assertEquals(expectedUrl, generatedUrl);
+        Test.stopTest();
+    }
+
+    @isTest
+    static void TestVisualforceUrlLwr() {
+        Test.startTest();
+        setupData();
+        String generatedUrl = CommerceConfigurationPunchinController.getVisualforceUrlForLwr('/pathPrefix', COMMUNITY_ID, accountId, productsList[0].Id);
+        String expectedUrl = '/pathPrefixvforcesite/apex/commerceConfigurationWindowLwr?communityId=' + COMMUNITY_ID + '&accountId=' + accountId + '&productId=' + productsList[0].Id;
         System.assertEquals(expectedUrl, generatedUrl);
         Test.stopTest();
     }
