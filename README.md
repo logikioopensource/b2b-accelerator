@@ -21,8 +21,8 @@ This guide assumes the following in Salesforce:
    - Replace the URL following "-r " with the one that the Logik-B2B integration will be set up on.
    - The text following "--setalias " is a nickname that is used to identify and reference the correct Salesforce org (multiple Salesforce orgs can be connected to a single machine). The example "myOrg" will be used for the purposes of this guide; if using another alias here, be sure to use that same alias in the following steps.
 7. The URL specified in the previous login command will be opened in the default browser. Log in and authorize the "Salesforce CLI" connected app.
-8. In the command line, run the command "sf project deploy start -p src -u myOrg". After a few moments, the command line will return a confirmation message, "Deploy Succeeded."
-9. (Optional) If the Salesforce org isn’t already open in a browser, it can be opened and logged in by running the command “sf org open -u myOrg”.
+8. In the command line, run the command "sf project deploy start -p src -o myOrg". After a few moments, the command line will return a confirmation message, "Deploy Succeeded."
+9. (Optional) If the Salesforce org isn’t already open in a browser, it can be opened and logged in by running the command “sf org open -o myOrg”.
 
 ## Post-Install Setup in Salesforce
 Next steps depend on the type of integration with Logik: the pre-built Logik UI embedded on the product detail page, a REST API to consume, or both. To use the Logik's native UI, refer to "*iFrame Integration Setup*" in the *docs* folder. To use the REST API to add configurations to carts, refer to "*REST API Integration*", also in the *docs* folder.
